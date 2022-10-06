@@ -143,12 +143,14 @@ describe('example to-do app', () => {
     it('Add item for Eder', () =>{
       const datos=['Hola mundo','Hola mundo 2']
        for(let i=0; i<datos.length;i++){
-         cy.get('[data-test=new-todo]').type(`${datos[i]}{enter}`);
+         cy.get('[data-test=new-todo]').type(`${datos[i]}{enter}`)
        }
  
        cy.get('.todo-list li')
        .should('have.length', 4)
-       cy.get('.todo-list li').eq(1).should('have.text','Walk the dog')
+       cy.get('.todo-list li')
+       .eq(1)
+       .should('have.text','Walk the dog')
  
        cy.contains(datos[0])
        .parent()
