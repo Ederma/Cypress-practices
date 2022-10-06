@@ -1,0 +1,14 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "Ejercicio",
+  "main": "\u001b[3~",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "author": "Eder",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.7.0"
+  }
+}
