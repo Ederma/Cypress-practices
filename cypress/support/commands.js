@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('planType', () => {
+    return cy.request({
+      method: 'GET',
+      url: `https://api.stagecliengo.com/1.0/account/plan`
+    })
+  })
