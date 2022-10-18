@@ -5,12 +5,16 @@ describe("login", () => {
     cy.get("#login-email").type("EderCypress@cliengo.com");
     cy.get("#login-pass").type("Cliengo123");
     cy.get('button[type="submit"]').click();
-    //puede que esta linea la tenga que editar en un momento
-
+    //verifica si es visible el modal para cerrarlo
     cy.get("#react-modal .close").then(($el) => {
       if (Cypress.dom.isVisible($el)) {
         cy.get("#react-modal .close").click();
       }
+    });
+    // verifica el plan de la company mendiante la api de planes
+    cy.planType().should("have.property", "status", 200);
+    cy.planType().then((response) => {
+      expect(response.body).to.have.property("id", "CLIENGO_CONVERSACIONES_CORPORATE"); // true
     });
   });
 });
